@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-blue-900 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8 text-white drop-shadow-lg">
+            NASA Astronomy Picture of the Day
+        </h1>
+
+        <div id="apod-container" class="max-w-4xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div id="loading" class="flex justify-center items-center h-96">
+                <div role="status">
+                    <svg aria-hidden="true" class="w-16 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                        <path d="M93.9676 39.0409C96.393 38.4107 97.8624 35.9706 97.0079 33.5029C95.2932 28.61 92.871 23.9596 89.8167 19.3866C85.8452 13.4405 80.8826 8.47794 75.2124 4.50097C69.5422 0.524092 63.2754 -1.5807 56.7698 -1.94982C51.7666 -2.23317 46.6976 -1.26125 41.7345 0.871158C36.7714 3.00352 32.1188 6.12373 28.1039 9.99524C24.0889 13.8667 20.7196 18.3894 18.1539 23.3167C15.5883 28.2441 14.1439 33.5696 14.0321 38.978C13.9204 44.3864 15.1492 49.7578 17.4056 54.2829C19.6621 58.8079 22.8476 62.7821 26.6876 65.9116C30.5276 69.0412 34.9229 71.2682 39.6098 72.4399C44.2966 73.6116 49.1466 73.6973 53.8618 72.5894C58.5769 71.4815 63.0128 69.2048 66.7347 65.9652C70.4567 62.7256 73.3793 58.5551 75.3109 53.7866C76.4128 51.1708 77.2194 48.4506 77.7192 45.6685C78.0396 43.7906 79.8903 42.6629 81.7512 43.0635C83.6121 43.4641 84.7426 45.2969 84.4222 47.1748C83.8161 50.5524 82.7583 53.8456 81.2559 56.9398C78.9035 61.9666 75.5836 66.4669 71.4561 70.2996C67.3286 74.1323 62.4725 77.2046 57.1254 79.3248C51.7783 81.445 46.0412 82.5698 40.2142 82.5979C34.3871 82.626 28.6303 81.557 23.2226 79.4217C17.8148 77.2864 12.8815 74.1291 8.68849 70.1082C4.49548 66.0873 1.15671 61.2459 -0.662979 55.9122C-2.47966 50.5785 -3.06185 44.9307 -2.36683 39.3864C-1.6718 33.8421 0.464225 28.4866 3.9421 23.7619C7.42 18.9108 12.0429 14.8595 17.4101 11.9529C22.7774 9.04628 28.7578 7.4269 34.8953 7.17259C41.0328 6.91827 47.1662 8.02112 52.8157 10.4282C58.4652 12.8353 63.5262 16.4787 67.6001 21.0512C68.6463 22.2348 70.5192 22.3375 71.7073 21.2978C72.8954 20.2582 73.0001 18.4169 71.9539 17.2333C67.4214 12.1654 61.8654 8.14797 55.6239 5.4848C49.3823 2.82163 42.5644 1.56543 35.7077 1.81064C28.8511 2.05584 22.1438 4.00128 16.0764 7.4474C9.9328 10.9599 4.52998 15.8589 0.287516 21.7613C-4.27523 28.0058 -7.34342 35.1794 -8.6028 42.7109C-9.86218 50.2423 -8.87724 57.9441 -5.69812 64.9922C-2.51901 72.0403 2.54035 78.2667 8.62866 83.1153C14.7169 87.9638 21.8854 91.2478 29.4799 92.6969C37.0743 94.1459 44.9 93.7101 52.2568 91.4267C59.6137 89.1432 66.2408 85.0803 71.6209 79.5614C76.5279 74.4159 80.2106 68.1994 82.4578 61.3947C83.4627 58.1331 84.1493 54.7846 84.5095 51.3887C84.7009 49.5956 83.4796 47.958 81.7062 47.6675Z" fill="currentFill"/>
+                    </svg>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div id="apod-content" class="hidden">
+                <div class="relative">
+                    <img id="apod-img" 
+                         class="w-full max-h-[600px] object-cover transition-all duration-300 hover:scale-105" 
+                         src="" 
+                         alt="Astronomy Picture of the Day">
+                    
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+                        <h2 id="apod-title" class="text-2xl font-bold text-white mb-2"></h2>
+                        <p id="apod-date" class="text-sm text-gray-300 mb-2"></p>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p id="apod-description" class="text-gray-200 leading-relaxed"></p>
+                    
+                    <div class="mt-4 flex justify-between items-center">
+                        <a id="apod-hdurl" href="" target="_blank" 
+                           class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            View HD Image
+                        </a>
+                        <span id="apod-copyright" class="text-sm text-gray-400 italic"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+</body>
+</html>
